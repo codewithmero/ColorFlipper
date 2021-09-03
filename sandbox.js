@@ -1,17 +1,17 @@
-const colors = ["green", "red", "rgba(133, 122, 200)", "#f15025"];
-const changeButton = document.querySelector("a.change-button");
+// const changeButton = document.querySelector("a.change-button");
 const colorString = document.querySelector(".color-string");
 
-changeButton.addEventListener('click', () => {
-  console.log('clicked!');  
-  const rString = Math.floor(Math.random() * 255);
-  const gString = Math.floor(Math.random() * 255);
-  const bString = Math.floor(Math.random() * 255);
-  const rgbstring = `rgb(${rString}, ${gString}, ${bString})`;
-  const hexString = rgbToHex(rgbstring);
-  document.body.style.backgroundColor = hexString;
-  colorString.style.color = getContrastYIQ(hexString);
-  colorString.textContent = hexString;
+document.addEventListener('keyup', e => {
+  if (e.code === 'Space') { 
+    const rString = Math.floor(Math.random() * 255);
+    const gString = Math.floor(Math.random() * 255);
+    const bString = Math.floor(Math.random() * 255);
+    const rgbstring = `rgb(${rString}, ${gString}, ${bString})`;
+    const hexString = rgbToHex(rgbstring);
+    document.body.style.backgroundColor = hexString;
+    colorString.style.color = getContrastYIQ(hexString);
+    colorString.textContent = hexString;
+  }
 }); 
 
 // function to convert RGB string into a Hex string;
